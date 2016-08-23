@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Rock | Paper | Scissors</title>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="robots" content="index,follow" />  
+	<meta name="description" content="Mini game of rock, paper, scissors vs CPU">
+	<meta name="subject" content="rock, paper, scissors">
+	<meta name="keywords" content="rock, paper, scissors, game, computer, cpu">
+	<meta name="author" content="Cristian Rosoi">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.6.1/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/customstyle.css">
+</head>
+<body>
+	<!--H1 class for SEO purposes-->
+	<h1 class="text-hide">Rock Paper Scissors Game</h1>
+	<!-- end class -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="controls soundOn">
+					<p><span style="font-size: 24px; vertical-align: middle; cursor: pointer;">Music On </span> <!--<i class="fa fa-volume-up" aria-hidden="true"></i>--></p> 		
+				</div>
+				<div class="controls soundOff">
+					<p><span style="font-size: 24px; vertical-align: middle; cursor: pointer;">Music Off </span> <!--<i class="fa fa-volume-off" aria-hidden="true"></i>--></p>	
+				</div>
+			</div>
+		</div>
+	<!--Login: to show first-->	
+	<div id ="login" class="container-fluid">		
+		<div class="row">						
+		<div class="col-xs-12 col-sm-4 col-sm-offset-4">
+			<div id="backclouds"></div>			
+			<img id="logo" class="img-responsive" src="img/logo.png" alt="game logo big">			
+			<div class="loginPannel">			
+				<!--<h2 class="text-center">Rock | Paper | Scissors</h2>-->			
+				<div id="grabName" class="score text-center">			
+					<p class="medium-text visible-md visible-lg">Please enter your name below</p>
+					<p class="small-text visible-xs visible-sm">Please enter your name below</p>
+					<ul class="list-unstyle list-inline">
+						<li><h4><input id="userName" class="visible-md visible-lg" type="text" pattern="[A-Za-z]+" title="letters only" required class="text-muted" style="height: 50px;"></h4></li>
+						<li><h4><input id="userName" class="visible-xs visible-sm" type="text" pattern="[A-Za-z]+" title="letters only" required class="text-muted" style="height: 20px;"></h4></li>
+						<li><div id="btnPlay" class="btn btn-lg btn-primary visible-md visible-lg">Play</div></li>						
+						<li><div id="btnPlay" class="btn btn-sm btn-primary visible-xs visible-sm">Play</div></li>
+					</ul>
+				</div>		
+			</div>
+		</div>
+		</div>
+	</div><!--End Container-->
+
+	<!--Game map-->
+	<div id ="map" class="container-fluid">
+		<div class="row">
+			
+		<div class="col-xs-12 col-sm-4 col-sm-offset-4">			
+		</div>
+		</div>
+	</div><!--End Container-->
+
+	<!--play: to show after login-->
+	<div id ="play" class="container-fluid">		
+		<div class="row">
+		<div class="jumbotron">			
+			<img class="logoPlay img-responsive" src="img/logo.png" alt="game logo small">
+			<h2 class="text-center text-muted">Round: <span id="roundScore"></span></h2>
+			<br>
+			<div class="score text-center">
+			<ul class="list-unstyle list-inline text-muted">
+				<li><h4><i class="fa fa-user" aria-hidden="true"></i><span id="playerScore"> Player: 0 </span></h4></li>
+				<li><h4><i class="fa fa-cogs" aria-hidden="true"></i> CPU: <span id="computerScore"> 0 </span></h4></li>
+				<li><h4><i class="fa fa-circle-o" aria-hidden="true"></i> Tie: <span id="tieScore"> 0 </span></h4></li>
+			</ul>
+			</div>		
+		</div>
+		</div>
+
+		<div class="row">						
+			<div class="text-center">
+				<br>
+				<ul id="btnlist" class="list-unstyle list-inline">
+					<li><button id="btnRock" value="rock">
+						<i class="fa fa-hand-rock-o" style="font-size: 50px; opacity: 0.8" aria-hidden="true"></i>
+					</button></li>
+					<li><button id="btnPaper" value="paper">
+						<i class="fa fa-hand-paper-o" style="font-size: 50px; opacity: 0.8" aria-hidden="true"></i>
+					</button></li>
+					<li><button id="btnScissors" value="scissors">
+						<i class="fa fa-hand-scissors-o" style="font-size: 50px; opacity: 0.8" aria-hidden="true"></i>
+					</button></li>
+				</ul>
+			</div>			
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-6 col-md-2 col-md-offset-2">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 id="userNamePannel" class="panel-title">User Choice</h3>
+				  </div>
+				  <div class="panel-body text-center">
+				  	<p id="userChoicePannel"><i class="fa fa-sign-language" style="font-size: 100px" aria-hidden="true"></i></p>
+				  </div>				  	
+				</div>
+			</div>
+			
+			<div class="col-xs-4 col-md-4 text-center">
+				<p style="font-size: 50px;" class="visible-md visible-lg text-muted"><br>VS</p>
+			</div>
+
+			<div class="col-xs-6 col-md-2">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">CPU Choice</h3>
+				  </div>
+				  <div class="panel-body text-center">
+				  	<p id="cpuChoicePannel"><i class="fa fa-sign-language" style="font-size: 100px" aria-hidden="true"></i></p>
+				  </div>		   
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<p class="text-center" style="font-size: 50px;"></p>
+		</div>
+
+		
+	</div><!--end Container-->
+
+	<div id ="winGame" class="container-fluid">
+		<div class="row">
+		<div class="col-xs-12 col-sm-4 col-sm-offset-4">
+			<div class="loginPannel">			
+				<img class="logoPlay img-responsive" src="img/logo.png" alt="game logo small">			
+				<div class="score text-center">
+					<br>
+					<i class="fa fa-trophy" style="font-size: 6em; color: #f1c40f" aria-hidden="true"></i>
+					<br>
+					<h3 id="winResult"></h3>									
+					<h3 id="winScore"></h3>
+					<br>
+					<ul class="list-unstyle list-inline">
+						<li><div class="btnResetGame btn btn-lg btn-warning">Reset Game</div></li>											
+						<li><div id="btnPlayAgainWin" class="btn btn-lg btn-primary">Play again</div></li>						
+					</ul>					
+				</div>		
+			</div>
+		</div>
+		</div>
+	</div><!--End Container-->
+
+	<div id ="lostGame" class="container-fluid">
+		<div class="row">
+		<div class="col-xs-12 col-sm-4 col-sm-offset-4">
+			<div class="loginPannel">			
+				<img class="logoPlay img-responsive" src="img/logo.png" alt="game logo small">			
+				<div class="score text-center">
+					<br>
+					<i class="fa fa-frown-o" style="font-size: 6em; color: #c0392b" aria-hidden="true"></i>
+					<br>
+					<h3 id="lostResult"></h3>									
+					<h3 id="lostScore"></h3>
+					<br>
+					<ul class="list-unstyle list-inline">
+						<li><div class="btnResetGame btn btn-lg btn-warning">Reset Game</div></li>												
+						<li><div id="btnPlayAgainLost" class="btn btn-lg btn-primary">Play again</div></li>
+					</ul>
+				</div>		
+			</div>
+		</div>
+		</div>
+	</div><!--End Container-->
+
+
+<!-- 
+
+Sounds & Music 
+
+background music credits:
+"Carpe Diem" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 3.0 License
+http://creativecommons.org/licenses/by/3.0/
+
+winning the game credits:
+This game uses these sounds from freesound:
+Trumpet2 by Harbour11 (https://www.freesound.org/people/Harbour11/);
+Remix of 59820__musicmangoldy__Trumpet_09_(Before-After) by Timbre (https://www.freesound.org/people/Timbre)
+
+-->
+
+<script src="js/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>	
+<script src="js/gameplay.js" type="text/javascript"></script>
+</body>
+</html>

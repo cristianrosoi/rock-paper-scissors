@@ -1,0 +1,102 @@
+body {
+				
+		background-color: rgba(153,196,235,1);
+		background-image: url('../img/backgroundtst2.png');				
+		background-size: cover cover;
+		background-repeat: no-repeat;
+		margin: 0;
+		padding: 0;
+
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		margin: 0;		
+	}
+
+	.jumbotron {
+		background-color: transparent;
+		color: white;
+		margin-bottom: 10px;
+		padding-bottom: 0;
+	
+	}
+
+	.jumbotron>h2:first-child {
+		font-size: 50px;
+	}
+
+	.row {
+		padding: 0;
+		margin: 0;
+	}
+
+	.giant-text {
+		font-size: 100px;
+	}
+
+	.medium-text {
+		font-size: 50px;
+	}
+
+	.small-text {
+		font-size: 25px;
+	}
+
+	.panel {
+		opacity: 1;
+
+	}
+
+	#userChoicePannel {
+		transition: cubic-bezier(1, 0.05, 0, 1.01);
+	}
+
+	.loginPannel {				
+		padding: 10px;
+		margin-top: 20px;		
+		color: #656565;			 		
+	}
+
+	#backclouds {
+		position: relative;		
+		z-index: -10;
+	}
+
+	#logo {
+		position: relative;		
+		z-index: -20;
+	}
+
+	.logoPlay {
+		display: block;
+		margin: 0 auto;
+		max-width: 350px;
+		padding-bottom: 30px;		
+	}
+
+	#upperclouds {
+		position: relative;		
+		z-index: 20;
+	}
+
+	#grabName {
+		background-color: rgba(255, 255, 255, 0.8);		
+		border: 5px solid white;
+		border-radius: 10px;
+		padding: 10px;
+		margin-top: 50px;
+	}
+
+	.controls {
+		margin-top: 0;
+		padding-top: 0;
+		float: left;
+		padding-left: 30px;
+		font-size: 50px;
+		color: white;
+	}
+
+	.controls:hover {
+		color: blue;
+	}
+	
