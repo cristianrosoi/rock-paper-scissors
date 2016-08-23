@@ -24,6 +24,7 @@ $(document).ready(function() {
 	var soundOn = '<i class="fa fa-volume-up" aria-hidden="true"></i>'
 	var soundOff = '<i class="fa fa-volume-off" aria-hidden="true"></i>'
 	var letters = /^[a-zA-Z]*$/;
+	var isMusicOn;
 	
 	backgroundMusic.volume = 0.1;
 	winSound.volume = 0.1;
@@ -39,6 +40,7 @@ $(document).ready(function() {
 
 	$('.soundOff').click(function(){
 		backgroundMusic.play();
+		isMusicOn = true;
 		$('.soundOff').hide();
 		$('.soundOn').show();
 	});		
@@ -80,8 +82,11 @@ $(document).ready(function() {
 				if (choice2 === "scissors") {
 					$('#result').text('You Win');
 					playerScore++;
-					roundScore++;				
-					winSound.play();
+					roundScore++;
+					if(isMusicOn == true) {
+						winSound.play();
+					}		
+					
 				} else {
 					$('#result').text('Computer Wins');
 					computerScore++;
@@ -92,7 +97,9 @@ $(document).ready(function() {
 					$('#result').text('You Win');
 					playerScore++;
 					roundScore++;
-					winSound.play();
+					if(isMusicOn == true) {
+						winSound.play();
+					}
 				} else {
 					$('#result').text('Computer Wins');
 					computerScore++;
@@ -103,7 +110,9 @@ $(document).ready(function() {
 					$('#result').text('You Win');
 					playerScore++;
 					roundScore++;
-					winSound.play();
+					if(isMusicOn == true) {
+						winSound.play();
+					}
 				} else {
 					$('#result').text('Computer Wins');
 					computerScore++;
@@ -121,7 +130,9 @@ $(document).ready(function() {
 			if (roundScore === 10) {
 				if (playerScore > computerScore) {
 					backgroundMusic.pause();
-					winGame.play();
+					if(isMusicOn == true) {
+						winGame.play();
+					}
 					$('#play').hide();
 					$('#winGame').fadeIn(500);
 					$('#winResult').text('Congratulations you are the winner!');
@@ -137,12 +148,14 @@ $(document).ready(function() {
 						$('#roundScore').text(0);
 						$('#winGame').hide();
 						$('#play').fadeIn(500);						
-						
+						if(isMusicOn == true) {
+							backgroundMusic.play();
+						}
 					});
 									
 				} else {
 					backgroundMusic.pause();
-					gameOver.play();
+					if(isMusicOn == true) {gameOver.play();}
 					$('#play').hide();
 					$('#lostGame').fadeIn(500);
 					$('#lostResult').text('You lost the game');
@@ -158,7 +171,9 @@ $(document).ready(function() {
 						$('#roundScore').text(0);
 						$('#lostGame').hide();
 						$('#play').fadeIn(500);						
-						
+						if(isMusicOn == true) {
+							backgroundMusic.play();
+						}
 					});
 				}
 			}
